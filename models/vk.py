@@ -3,6 +3,7 @@ import time
 
 
 
+
 class VK_API:
     url = 'https://api.vk.com/method/'
 
