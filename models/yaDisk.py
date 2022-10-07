@@ -35,7 +35,7 @@ class Ya_API:
                 return f'Системная или ресурсная ошибка'
 
     @logger
-    def vk_backup(self, img_list:list, count_img=5):
+    def vk_backup(self, img_list: list, count_img=5):
         data_list = []
         if self.folder() == True:
             url = f'{self.host}/v1/disk/resources/upload'
