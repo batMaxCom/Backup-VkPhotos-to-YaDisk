@@ -1,6 +1,7 @@
 import models.vk as VK
 import models.yaDisk as YA
 
+
 def main(vk, ya):
     print(
         f" Выберите одну из функций:\n 1 - сделать бэкап своих фотографий\n 2 - сделать бэкап фотографий друга\n q - для выхода")
@@ -98,19 +99,19 @@ def main(vk, ya):
                             command_lvl3 = input(
                                 f'Введите количество фото(всего {vk_version.get_photos(command_lvl1)[1]}):')
                             if int(command_lvl3) in range(1, vk_version.get_photos(command_lvl1)[1]):
-                                ya_version.vk_backup(img_list, count_img=int(command_lvl3))
+                                ya_version.vk_backup(img_list, path=f'{command_lvl1}/', count_img=int(command_lvl3))
                                 print('-----------------------')
                                 return main(vk, ya)
                             elif int(command_lvl3) > vk.get_photos(command_lvl1)[1]:
                                 print('Превышено число количества фотографий. Будут загружены все')
-                                ya_version.vk_backup(img_list, count_img=int(vk_version.get_photos(command_lvl1)[1]))
+                                ya_version.vk_backup(img_list, path=f'{command_lvl1}/', count_img=int(vk_version.get_photos(command_lvl1)[1]))
                                 print('-----------------------')
                                 return main(vk, ya)
                         except:
                             print('Введено некоректное значение\n-----------------------')
                             return main(vk, ya)
                     elif command_lvl2 == '2':
-                        ya_version.vk_backup(img_list)
+                        ya_version.vk_backup(img_list, path=f'{command_lvl1}/')
                         print('-----------------------')
                         return main(vk, ya)
                     else:
