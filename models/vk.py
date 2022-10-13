@@ -10,7 +10,7 @@ class VK_API:
         self.id = id
 
     def get_photos(self, album_id='profile'):
-        time.sleep(0.33)
+        # time.sleep(0.33)
         method = 'photos.get'
         params = {'album_id': album_id,
                   'extended': 'likes',
@@ -48,7 +48,7 @@ class VK_API:
         for resp in response:
             sort = {'id': resp['id'], 'name': resp['title']}
             sorted_list.append(sort)
-            time.sleep(0.33)
+            # time.sleep(0.33)
         return sorted_list
 
     def friends(self):
